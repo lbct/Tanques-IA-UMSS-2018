@@ -1,5 +1,5 @@
 
-import View.FramePrincipal;
+import jade.core.Agent;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -11,8 +11,9 @@ import View.FramePrincipal;
  *
  * @author Bernardo
  */
-public class Principal {
-    public static void main(String[] args){
-        new FramePrincipal().setVisible(true);
+public class TanquePrincipal extends Agent {
+    protected void setup(){
+        System.out.println("Hola soy "+getLocalName());
+        
     }
 }
