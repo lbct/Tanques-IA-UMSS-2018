@@ -15,15 +15,15 @@ import javax.swing.JPanel;
  */
 public class PanelView extends JPanel implements KeyListener{
     
-    TanqueView tanque;
+    //TanqueView tanque;
     
     public PanelView(){
         inicializar();
     }
     
     private void inicializar(){
-        tanque = new TanqueView(50, 50);
-        add(tanque);
+        //tanque = new TanqueView(50, 50);
+        //add(tanque);
     }
 
     @Override
@@ -32,7 +32,7 @@ public class PanelView extends JPanel implements KeyListener{
 
     @Override
     public void keyPressed(KeyEvent e) {
-        switch (e.getKeyCode()) {
+        /*switch (e.getKeyCode()) {
             case KeyEvent.VK_RIGHT:
                 tanque.mover(1, 0);
                 break;
@@ -47,7 +47,7 @@ public class PanelView extends JPanel implements KeyListener{
                 break;
             default:
                 break;
-        }
+        }*/
     }
 
     @Override

@@ -1,5 +1,12 @@
 
+import Controller.MainController;
 import View.FramePrincipal;
+import jade.core.Agent;
+import jade.core.Profile;
+import jade.core.ProfileImpl;
+import jade.wrapper.AgentContainer;
+import jade.wrapper.AgentController;
+import jade.wrapper.StaleProxyException;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -12,7 +19,8 @@ import View.FramePrincipal;
  * @author Bernardo
  */
 public class Principal {
-    public static void main(String[] args){
-        new FramePrincipal().setVisible(true);
+    public static void main(String[] args) throws StaleProxyException{
+        //new FramePrincipal().setVisible(true);
+        new MainController();
     }
 }

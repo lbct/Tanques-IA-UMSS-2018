@@ -45,8 +45,11 @@ public class TanqueView extends JLabel {
         setIcon(new ImageIcon(imagen));
     }
     
-    public void mover(int x, int y){
+    public void mover(int xPos, int yPos){
         RotatedIcon img = null;
+        
+        int x = xPos == getX()?0:xPos>getX()?1:-1;
+        int y = yPos == getY()?0:yPos>getY()?1:-1;
         
         if(x < 0)
             img = new RotatedIcon(new ImageIcon(imagen), RotatedIcon.Rotate.DOWN);
@@ -56,7 +59,9 @@ public class TanqueView extends JLabel {
             img = new RotatedIcon(new ImageIcon(imagen), RotatedIcon.Rotate.UPSIDE_DOWN);
         else if(y > 0)
             img = new RotatedIcon(new ImageIcon(imagen), RotatedIcon.Rotate.ABOUT_CENTER);
-        setIcon(img);
-        setBounds(getX() + x * VELOCIDAD, getY() + y * VELOCIDAD, ANCHO, ALTO);
+        if(img != null)
+            setIcon(img);
+        
+        setBounds(xPos, yPos, ANCHO, ALTO);
     }
 }

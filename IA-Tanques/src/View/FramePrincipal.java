@@ -38,4 +38,10 @@ public class FramePrincipal extends JFrame{
         
         setBounds(100, 100, ANCHO, ALTO);
     }
+    
+    public TanqueView agregarNuevoTanque(int x, int y){
+        TanqueView tanque = new TanqueView(x, y);
+        panel.add(tanque);
+        return tanque;
+    }
 }
