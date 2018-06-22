@@ -58,7 +58,7 @@ public class MainController {
                         if(i!=j){
                             double dif = Math.min(Math.abs(tanquesJade[i].getX() - tanquesJade[j].getX()) 
                                     , Math.abs(tanquesJade[i].getY() - tanquesJade[j].getY()));
-                            double val = rna.getRespuesta(new double[]{ tanquesJade[i].getX(), tanquesJade[j].getX(), tanquesJade[i].getY(), tanquesJade[j].getY() })[0];
+                            double val = rna.getRespuesta(new double[]{ dif })[0];
                             if(val > 0.5){
                                 tanquesJade[i].disparar = true;
                                 //tanquesJade[i].detener();
