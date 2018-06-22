@@ -43,6 +43,8 @@ public class Disparo extends CyclicBehaviour{
                 contadorTiempo = System.currentTimeMillis();
                 x += dirX;
                 y += dirY;
+                if(dirX == 0 && dirY == 0)
+                    agente.disparar = false;
                 if(x < 0 || x > 640 || y < 0 || y > 480)
                     agente.disparar = false;
             }
