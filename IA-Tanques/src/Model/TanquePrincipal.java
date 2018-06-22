@@ -1,7 +1,6 @@
 package Model;
 
-
-import Behaviour.Comunicacion;
+import Behaviour.Disparo;
 import Behaviour.Movimiento;
 import jade.core.Agent;
 
@@ -17,19 +16,21 @@ import jade.core.Agent;
  */
 public class TanquePrincipal extends Agent {
     
-    private Movimiento movimiento;
-    private Comunicacion comunicacion;
+    public Movimiento movimiento;
+    public Disparo disparo;
+    public boolean disparar;
     
     public TanquePrincipal(int x, int y){
         super();
+        disparar = false;
         movimiento = new Movimiento(x, y);
-        comunicacion = new Comunicacion(this);
+        disparo = new Disparo(this);
     }
     
     @Override
     protected void setup(){
         addBehaviour(movimiento);
-        addBehaviour(comunicacion);
+        addBehaviour(disparo);
     }
     
     public void detener(){

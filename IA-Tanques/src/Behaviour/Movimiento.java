@@ -20,7 +20,7 @@ public class Movimiento extends Behaviour{
     private int y;
     private long contadorTiempo;
     private int keep;
-    private int dirX, dirY;
+    public int dirX, dirY;
     
     public Movimiento(int x, int y){
         super();
@@ -34,7 +34,7 @@ public class Movimiento extends Behaviour{
     
     @Override
     public void action() {
-        if(System.currentTimeMillis() - contadorTiempo >= 10){
+        if(System.currentTimeMillis() - contadorTiempo >= 50){
             if(keep <= 0){
                 Random r = new Random(System.currentTimeMillis() / (x * y + 1));
                 

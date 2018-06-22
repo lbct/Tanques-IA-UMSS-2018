@@ -44,4 +44,9 @@ public class FramePrincipal extends JFrame{
         panel.add(tanque);
         return tanque;
     }
+    public BalaView agregarNuevaBala(int x, int y){
+        BalaView bala = new BalaView(x, y);
+        panel.add(bala);
+        return bala;
+    }
 }
