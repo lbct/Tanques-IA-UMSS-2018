@@ -14,8 +14,7 @@ import java.util.Random;
  */
 public class Movimiento extends Behaviour{
 
-    private boolean turno;
-    private boolean detener;
+    public boolean detener;
     private int x;
     private int y;
     private long contadorTiempo;
@@ -26,7 +25,6 @@ public class Movimiento extends Behaviour{
         super();
         keep = 0;
         detener = false;
-        turno = false;
         this.x = x;
         this.y = y;
         contadorTiempo = System.currentTimeMillis();
@@ -58,7 +56,6 @@ public class Movimiento extends Behaviour{
             if(dirY != 0)
                 dirX = 0;
             
-            turno = !turno;
             contadorTiempo = System.currentTimeMillis();
         }
     }

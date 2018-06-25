@@ -6,6 +6,8 @@
 package View;
 
 import Extra.RotatedIcon;
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
@@ -23,7 +25,6 @@ public class TanqueView extends JLabel {
     private static final String NOMBRE_IMAGEN = "Resources/Imagenes/tank.png";
     private static final int ANCHO = 50;
     private static final int ALTO = 50;
-    private static final int VELOCIDAD = 5;
     
     private Image imagen;
     
@@ -32,6 +33,13 @@ public class TanqueView extends JLabel {
     }
     
     private void init(int posX, int posY){
+        setText(100+"");
+        setFont(new Font("Serif", Font.BOLD, 15));
+        setHorizontalTextPosition(JLabel.CENTER);
+        setVerticalTextPosition(JLabel.CENTER);
+        
+        setForeground(Color.WHITE);
+        
         URL dir = getClass().getClassLoader().getResource(NOMBRE_IMAGEN);
         imagen = null;
         try {

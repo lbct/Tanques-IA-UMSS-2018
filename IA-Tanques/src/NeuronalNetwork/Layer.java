@@ -14,7 +14,7 @@ import java.util.Random;
  * @author Bernardo
  */
 public class Layer implements java.io.Serializable{
-    public ArrayList<Neuron> neurons;
+        public ArrayList<Neuron> neurons;
         public int numberOfNeurons;
         public double[] output;
 
@@ -30,14 +30,9 @@ public class Layer implements java.io.Serializable{
 
         public double[] Activate(double[] inputs)
         {
-            ArrayList<Double> outputs = new ArrayList<Double>();
+            double[] lista = new double[numberOfNeurons];
             for (int i = 0; i < numberOfNeurons; i++)
-            {
-                outputs.add(neurons.get(i).Activate(inputs));
-            }
-            double[] lista = new double[outputs.size()];
-            for(int i=0;i<outputs.size();i++)
-                lista[i] = outputs.get(i);
+                lista[i] = neurons.get(i).Activate(inputs);
             return lista;
         }
 }

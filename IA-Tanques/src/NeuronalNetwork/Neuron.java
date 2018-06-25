@@ -12,9 +12,9 @@ import java.util.Random;
  * @author Bernardo
  */
 public class Neuron implements java.io.Serializable{
-    public double[] weights;
-        public double lastActivation;
-        public double bias;
+    public double[] weights; //Pesos
+        public double lastActivation; //La ultima salida
+        public double bias; //Umbral
 
         public Neuron(int numberOfInputs, Random r)
         {
@@ -25,6 +25,8 @@ public class Neuron implements java.io.Serializable{
                 weights[i] = 10 * r.nextDouble() - r.nextDouble();
             }
         }
+        
+        //Funcion que te calcula la salida
         public double Activate(double[] inputs)
         {
             double activation = bias;

@@ -39,8 +39,11 @@ public class NeuronalNetworkController {
 
         double outputMax = 1;
         double outputMin = 0;
-
+//              True: Cargar un perceptron ya entrenado
+        //      False: Entrenar un nuevo perceptron
         boolean loadNetwork = true;
+        //       True: Guardar el perceptron despues de entrenar
+        //       False: No guardar el perceptron
         boolean saveNetwork = false;
 
         String dataPath = "Datos.csv";
@@ -153,9 +156,10 @@ public class NeuronalNetworkController {
             if (!loadNetwork)
             {
                 ReadData();
+                //                                          CAPA 1       CAPA 2 y 3     CAPA 4
                 perception = new Perceptron(new int[] { input.get(0).length, 3, 3, output.get(0).length });
-
-                while (!perception.Learn(input, output, 0.5, 0.03, 5000000))
+                //                      Aqui el perceptron aprende
+                while (!perception.Learn(input, output, 0.5, 0.03, 500000))
                 {
                     perception = new Perceptron(new int[] { input.get(0).length, 3, 3, output.get(0).length });
                 }

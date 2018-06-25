@@ -29,9 +29,9 @@ public class MainController {
     
     private FramePrincipal frame;
     private NeuronalNetworkController rna;
-    private TanquePrincipal[] tanquesJade;
-    private TanqueView[] tanquesVisual;
+    public static TanquePrincipal[] tanquesJade;
     private BalaView[] balas;
+    private TanqueView[] tanquesVisual;
     
     public void inicializar() throws ClassNotFoundException, IOException{
         rna = new NeuronalNetworkController();
@@ -53,17 +53,17 @@ public class MainController {
             public void run() {
                 for(int i=0;i<Valores.getNumeroAgentes();i++){
                     tanquesVisual[i].mover(tanquesJade[i].getX(), tanquesJade[i].getY());
+                    tanquesVisual[i].setText(tanquesJade[i].vida+"");
                     balas[i].mover(tanquesJade[i].disparo.x, tanquesJade[i].disparo.y);
-                    for(int j=0;j<Valores.getNumeroAgentes();j++){
-                        if(i!=j){
-                            double dif = Math.min(Math.abs(tanquesJade[i].getX() - tanquesJade[j].getX()) 
-                                    , Math.abs(tanquesJade[i].getY() - tanquesJade[j].getY()));
-                            double val = rna.getRespuesta(new double[]{ dif })[0];
-                            if(val > 0.5){
-                                tanquesJade[i].disparar = true;
-                                //tanquesJade[i].detener();
-                                //tanquesJade[j].detener();
-                                System.out.println("Dispara");
+                    if(!tanquesJade[i].detenido()){
+                        for(int j=0;j<Valores.getNumeroAgentes();j++){
+                            if(i!=j && !tanquesJade[j].detenido()){
+                                double dif = Math.min(Math.abs(tanquesJade[i].getX() - tanquesJade[j].getX()) 
+                                        , Math.abs(tanquesJade[i].getY() - tanquesJade[j].getY()));
+                                double val = rna.getRespuesta(new double[]{ dif })[0];
+                                if(val > 0.5){
+                                    tanquesJade[i].disparar = true;
+                                }
                             }
                         }
                     }
